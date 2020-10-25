@@ -3,7 +3,6 @@ package Problem1;
 
 public class ValidParentheses {
 
-    // Do not change signature (function name, parameters, return type)
     public static boolean isValid(String str) {
 
         if (str == null) {
@@ -18,11 +17,12 @@ public class ValidParentheses {
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '(' || str.charAt(i) == '[' || str.charAt(i) == '{') {
                 stack.push(str.charAt(i));
-            } else {
+            }
+            else {
                 if (stack.size() == 0) {
                     return false;
                 }
-                switch (str.charAt(i)) {
+                switch (str.charAt(i)) { // nintendo switch
 
                     case ')':
                         if (stack.pop() != '(') {

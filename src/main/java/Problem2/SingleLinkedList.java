@@ -2,17 +2,14 @@ package Problem2;
 
 import java.util.HashMap;
 
-// all functions assume using dummy node
 public class SingleLinkedList {
-    // do not add member variables
     private ListNode head;
     private int size;
 
     public SingleLinkedList() {
-        head = new ListNode();  // dummy node
+        head = new ListNode();
     }
 
-    // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
         if (list == null) {
             return;
@@ -47,10 +44,9 @@ public class SingleLinkedList {
                 current = current.next;
             }
         }
-        return count; // place holder
+        return count;
     }
 
-    // reverse the linked list nodes iteratively (no recursion)
     public void reverse() {
         ListNode previousNode = null;
         ListNode currentNode = head.next;
@@ -63,9 +59,6 @@ public class SingleLinkedList {
         }
         head.next = previousNode;
     }
-
-
-    // do not change any function below
 
     public SingleLinkedList(int[] data) {
         this();
@@ -80,7 +73,6 @@ public class SingleLinkedList {
         }
     }
 
-    // Appends the specified element to the end of this list
     public void add(int val) {
         size++;
         ListNode ptr = head;
