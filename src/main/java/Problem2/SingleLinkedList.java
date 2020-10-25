@@ -1,5 +1,7 @@
 package Problem2;
 
+import java.util.HashMap;
+
 // all functions assume using dummy node
 public class SingleLinkedList {
     // do not add member variables
@@ -12,20 +14,56 @@ public class SingleLinkedList {
 
     // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
-        // homework
+        if (list == null) {
+            return;
+        }
+
+        ListNode p1 = new ListNode();
+        head = p1;
+        ListNode p2 = list.head.next;
+
+        while (p2 != null) {
+            p1.next = new ListNode(p2.val);
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        size = list.size;
     }
 
+
     public int removeAll(int valueToRemove) {
-        // homework
-        // in-place
-        return -1; // place holder
+        int count = 0;
+        while (head != null && head.val == valueToRemove) {
+            head = head.next;
+        }
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            if (current.next.val == valueToRemove) {
+                current.next = current.next.next;
+                count++;
+                size--;
+            }
+            else {
+                current = current.next;
+            }
+        }
+        return count; // place holder
     }
 
     // reverse the linked list nodes iteratively (no recursion)
     public void reverse() {
-        // homework
-        // in-place
+        ListNode previousNode = null;
+        ListNode currentNode = head.next;
+        while (currentNode != null)
+        {
+            ListNode nextNode = currentNode.next;
+            currentNode.next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        head.next = previousNode;
     }
+
 
     // do not change any function below
 
