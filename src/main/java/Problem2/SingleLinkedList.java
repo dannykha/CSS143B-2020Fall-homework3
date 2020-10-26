@@ -1,33 +1,66 @@
 package Problem2;
 
-// all functions assume using dummy node
+import java.util.HashMap;
+
+
+
 public class SingleLinkedList {
-    // do not add member variables
     private ListNode head;
     private int size;
 
     public SingleLinkedList() {
-        head = new ListNode();  // dummy node
+        head = new ListNode();
     }
 
-    // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
-        // homework
+        if (list == null) {
+            return;
+        }
+
+        ListNode p1 = new ListNode();
+        head = p1;
+        ListNode p2 = list.head.next;
+
+        while (p2 != null) {
+            p1.next = new ListNode(p2.val);
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        size = list.size;
     }
+
 
     public int removeAll(int valueToRemove) {
-        // homework
-        // in-place
-        return -1; // place holder
+        int count = 0;
+        while (head != null && head.val == valueToRemove) {
+            head = head.next;
+        }
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            if (current.next.val == valueToRemove) {
+                current.next = current.next.next;
+                count++;
+                size--;
+            }
+            else {
+                current = current.next;
+            }
+        }
+        return count;
     }
 
-    // reverse the linked list nodes iteratively (no recursion)
     public void reverse() {
-        // homework
-        // in-place
+        ListNode previous = null;
+        ListNode current = head.next;
+        while (current != null)
+        {
+            ListNode nextNode = current.next;
+            current.next = previous;
+            previous = current;
+            current = nextNode;
+        }
+        head.next = previous;
     }
-
-    // do not change any function below
 
     public SingleLinkedList(int[] data) {
         this();
@@ -42,7 +75,6 @@ public class SingleLinkedList {
         }
     }
 
-    // Appends the specified element to the end of this list
     public void add(int val) {
         size++;
         ListNode ptr = head;
