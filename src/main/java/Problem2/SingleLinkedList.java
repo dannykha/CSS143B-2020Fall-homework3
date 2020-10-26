@@ -2,6 +2,8 @@ package Problem2;
 
 import java.util.HashMap;
 
+
+
 public class SingleLinkedList {
     private ListNode head;
     private int size;
@@ -48,16 +50,16 @@ public class SingleLinkedList {
     }
 
     public void reverse() {
-        ListNode previousNode = null;
-        ListNode currentNode = head.next;
-        while (currentNode != null)
+        ListNode previous = null;
+        ListNode current = head.next;
+        while (current != null)
         {
-            ListNode nextNode = currentNode.next;
-            currentNode.next = previousNode;
-            previousNode = currentNode;
-            currentNode = nextNode;
+            ListNode nextNode = current.next;
+            current.next = previous;
+            previous = current;
+            current = nextNode;
         }
-        head.next = previousNode;
+        head.next = previous;
     }
 
     public SingleLinkedList(int[] data) {

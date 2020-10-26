@@ -1,9 +1,6 @@
 package Problem1;
 
 public class MinStack extends ArrayStack<Integer> {
-    // okay to add member variables
-    // can only use Stack interface and ArrayStack from this folder
-    // do not use Java Stack
     ArrayStack<Integer> stack;
 
     public MinStack(int size) {

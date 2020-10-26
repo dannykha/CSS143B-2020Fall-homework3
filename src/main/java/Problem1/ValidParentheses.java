@@ -1,3 +1,7 @@
+/*
+Used this resource when ran into switch problems: https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
+ */
+
 package Problem1;
 
 
@@ -8,7 +12,7 @@ public class ValidParentheses {
         if (str == null) {
             return true;
         }
-        if (str.length() % 2 != 0) {
+        if (str.length() % 2 != 0) { // odd number get outta here
             return false;
         }
 

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class LinkedListStack<T> implements Stack<T> {
     private LinkedList<T> data;
-
+    // use the java linkedlist i guess lol
     public LinkedListStack() {
         data = new LinkedList<>();
     }
